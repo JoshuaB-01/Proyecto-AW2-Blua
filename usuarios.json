@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "nombre": "María",
+    "apellido": "González",
+    "email": "maria.gonzalez@email.com",
+    "contraseña": "clave123",
+    "activo": true
+  },
+  {
+    "id": 2,
+    "nombre": "Juan",
+    "apellido": "Pérez",
+    "email": "juan.perez@email.com",
+    "contraseña": "segura456",
+    "activo": true
+  },
+  {
+    "id": 3,
+    "nombre": "Ana",
+    "apellido": "Martínez",
+    "email": "ana.martinez@email.com",
+    "contraseña": "ana2023",
+    "activo": false
+  },
+  {
+    "id": 4,
+    "nombre": "Carlos",
+    "apellido": "López",
+    "email": "carlos.lopez@email.com",
+    "contraseña": "carlosL789",
+    "activo": true
+  },
+  {
+    "id": 5,
+    "nombre": "Laura",
+    "apellido": "Rodríguez",
+    "email": "laura.rodriguez@email.com",
+    "contraseña": "lauraR2023",
+    "activo": true
+  },
+  {
+    "id": 6,
+    "nombre": "Pedro",
+    "apellido": "Sánchez",
+    "email": "pedro.sanchez@email.com",
+    "contraseña": "pedroS111",
+    "activo": false
+  },
+  {
+    "id": 7,
+    "nombre": "Sofía",
+    "apellido": "Fernández",
+    "email": "sofia.fernandez@email.com",
+    "contraseña": "sofi@2023",
+    "activo": true
+  },
+  {
+    "id": 8,
+    "nombre": "Miguel",
+    "apellido": "Torres",
+    "email": "miguel.torres@email.com",
+    "contraseña": "mTorres888",
+    "activo": true
+  },
+  {
+    "id": 9,
+    "nombre": "Elena",
+    "apellido": "Díaz",
+    "email": "elena.diaz@email.com",
+    "contraseña": "elenita123",
+    "activo": false
+  },
+  {
+    "id": 10,
+    "nombre": "Javier",
+    "apellido": "Ruiz",
+    "email": "javier.ruiz@email.com",
+    "contraseña": "javiR2023",
+    "activo": true
+  }
+]

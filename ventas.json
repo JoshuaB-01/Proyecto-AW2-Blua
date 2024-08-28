@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "id_usuario": 3,
+    "fecha": "2023-03-15",
+    "total": 381489.50,
+    "dirección": "Av. 9 de Julio 1234, Buenos Aires",
+    "productos": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "envio_gratis": true
+  },
+  {
+    "id": 2,
+    "id_usuario": 7,
+    "fecha": "2023-03-16",
+    "total": 249993.00,
+    "dirección": "Calle Florida 567, Buenos Aires",
+    "productos": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "envio_gratis": true
+  },
+  {
+    "id": 3,
+    "id_usuario": 1,
+    "fecha": "2023-03-17",
+    "total": 174989.50,
+    "dirección": "Av. Corrientes 789, Buenos Aires",
+    "productos": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "envio_gratis": true
+  },
+  {
+    "id": 4,
+    "id_usuario": 5,
+    "fecha": "2023-03-18",
+    "total": 421989.50,
+    "dirección": "Calle Laprida 456, Rosario",
+    "productos": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "envio_gratis": true
+  },
+  {
+    "id": 5,
+    "id_usuario": 2,
+    "fecha": "2023-03-19",
+    "total": 307486.00,
+    "dirección": "Av. Belgrano 1010, Córdoba",
+    "productos": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "envio_gratis": true
+  },
+  {
+    "id": 6,
+    "id_usuario": 9,
+    "fecha": "2023-03-20",
+    "total": 139996.50,
+    "dirección": "Calle San Martín 234, Mendoza",
+    "productos": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "envio_gratis": false
+  },
+  {
+    "id": 7,
+    "id_usuario": 4,
+    "fecha": "2023-03-21",
+    "total": 209996.50,
+    "dirección": "Av. Independencia 678, Mar del Plata",
+    "productos": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "envio_gratis": true
+  },
+  {
+    "id": 8,
+    "id_usuario": 8,
+    "fecha": "2023-03-22",
+    "total": 104989.50,
+    "dirección": "Calle Mitre 890, Salta",
+    "productos": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "envio_gratis": false
+  },
+  {
+    "id": 9,
+    "id_usuario": 6,
+    "fecha": "2023-03-23",
+    "total": 559986.00,
+    "dirección": "Av. Urquiza 123, Paraná",
+    "productos": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "envio_gratis": true
+  },
+  {
+    "id": 10,
+    "id_usuario": 10,
+    "fecha": "2023-03-24",
+    "total": 279993.00,
+    "dirección": "Calle Rivadavia 456, San Miguel de Tucumán",
+    "productos": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "envio_gratis": true
+  }
+]

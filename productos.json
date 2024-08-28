@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "nombre": "Sofá de 3 plazas",
+    "desc": "Sofá cómodo y elegante para sala de estar",
+    "precio": 209996.50,
+    "imagen": "imagen.jpg",
+    "stock": 20,
+    "disponible": true
+  },
+  {
+    "id": 2,
+    "nombre": "Mesa de comedor",
+    "desc": "Mesa extensible de madera para 6-8 personas",
+    "precio": 139996.50,
+    "imagen": "imagen.jpg",
+    "stock": 15,
+    "disponible": true
+  },
+  {
+    "id": 3,
+    "nombre": "Juego de sábanas",
+    "desc": "Sábanas de algodón egipcio, 400 hilos",
+    "precio": 31496.50,
+    "imagen": "imagen.jpg",
+    "stock": 50,
+    "disponible": true
+  },
+  {
+    "id": 4,
+    "nombre": "Lámpara de pie",
+    "desc": "Lámpara moderna con luz ajustable",
+    "precio": 45496.50,
+    "imagen": "imagen.jpg",
+    "stock": 30,
+    "disponible": true
+  },
+  {
+    "id": 5,
+    "nombre": "Juego de ollas",
+    "desc": "Set de 5 ollas de acero inoxidable",
+    "precio": 69996.50,
+    "imagen": "imagen.jpg",
+    "stock": 25,
+    "disponible": true
+  },
+  {
+    "id": 6,
+    "nombre": "Aspiradora robot",
+    "desc": "Aspiradora inteligente con mapeo",
+    "precio": 104996.50,
+    "imagen": "imagen.jpg",
+    "stock": 40,
+    "disponible": true
+  },
+  {
+    "id": 7,
+    "nombre": "Cortinas blackout",
+    "desc": "Par de cortinas opacas, 2.4m de largo",
+    "precio": 27996.50,
+    "imagen": "imagen.jpg",
+    "stock": 60,
+    "disponible": true
+  },
+  {
+    "id": 8,
+    "nombre": "Planta artificial",
+    "desc": "Planta decorativa de 1.5m de altura",
+    "precio": 17496.50,
+    "imagen": "imagen.jpg",
+    "stock": 100,
+    "disponible": true
+  },
+  {
+    "id": 9,
+    "nombre": "Espejo de pared",
+    "desc": "Espejo redondo de 80cm de diámetro",
+    "precio": 31496.50,
+    "imagen": "imagen.jpg",
+    "stock": 35,
+    "disponible": true
+  },
+  {
+    "id": 10,
+    "nombre": "Set de toallas",
+    "desc": "Juego de 6 toallas de baño de algodón",
+    "precio": 24496.50,
+    "imagen": "imagen.jpg",
+    "stock": 75,
+    "disponible": true
+  }
+]
