@@ -6,7 +6,8 @@
     "precio": 209996.50,
     "imagen": "imagen.jpg",
     "stock": 20,
-    "disponible": true
+    "disponible": true,
+    "categoria": "Muebles"
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "precio": 139996.50,
     "imagen": "imagen.jpg",
     "stock": 15,
-    "disponible": true
+    "disponible": true,
+    "categoria": "Muebles"
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "precio": 31496.50,
     "imagen": "imagen.jpg",
     "stock": 50,
-    "disponible": true
+    "disponible": true,
+    "categoria": "Textiles"
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "precio": 45496.50,
     "imagen": "imagen.jpg",
     "stock": 30,
-    "disponible": true
+    "disponible": true,
+    "categoria": "Iluminación"
   },
   {
     "id": 5,
@@ -42,7 +46,8 @@
     "precio": 69996.50,
     "imagen": "imagen.jpg",
     "stock": 25,
-    "disponible": true
+    "disponible": true,
+    "categoria": "Cocina"
   },
   {
     "id": 6,
@@ -51,7 +56,8 @@
     "precio": 104996.50,
     "imagen": "imagen.jpg",
     "stock": 40,
-    "disponible": true
+    "disponible": true,
+    "categoria": "Electrodomésticos"
   },
   {
     "id": 7,
@@ -60,7 +66,8 @@
     "precio": 27996.50,
     "imagen": "imagen.jpg",
     "stock": 60,
-    "disponible": true
+    "disponible": true,
+    "categoria": "Textiles"
   },
   {
     "id": 8,
@@ -69,7 +76,8 @@
     "precio": 17496.50,
     "imagen": "imagen.jpg",
     "stock": 100,
-    "disponible": true
+    "disponible": true,
+    "categoria": "Decoración"
   },
   {
     "id": 9,
@@ -78,7 +86,8 @@
     "precio": 31496.50,
     "imagen": "imagen.jpg",
     "stock": 35,
-    "disponible": true
+    "disponible": true,
+    "categoria": "Decoración"
   },
   {
     "id": 10,
@@ -87,6 +96,7 @@
     "precio": 24496.50,
     "imagen": "imagen.jpg",
     "stock": 75,
-    "disponible": true
+    "disponible": true,
+    "categoria": "Textiles"
   }
 ]
