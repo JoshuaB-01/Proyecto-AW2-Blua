@@ -10,12 +10,12 @@ const port = 3001
 
 app.use(express.json())
 
-// Iniciar el servidor
+
 app.listen(port, () => {
     console.log(`Servidor levantado en puerto ${port}`)
 })
 
-// Rutas
+
 app.use('/usuarios', usuariosRouter)
 app.use('/ventas', ventasRouter)
 app.use('/productos', productosRouter)

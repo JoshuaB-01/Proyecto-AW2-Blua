@@ -6,13 +6,11 @@ const router = Router()
 let fileVentas = await readFile('./data/ventas.json', 'utf-8')
 let ventasData = JSON.parse(fileVentas)
 
-let fileUsuarios = await readFile('./data/usuarios.json', 'utf-8')
-let usuariosData = JSON.parse(fileUsuarios)
-
 router.get('/byId/:id', (req, res) => {
     const id = parseInt(req.params.id)
-    if (ventasData.id === id) {
-        res.status(200).json(ventasData)
+    const venta = ventasData.find(venta => venta.id === id)
+    if (venta) {
+        res.status(200).json(venta)
     } else {
         res.status(400).json(`${id} no se encuentra`)
     }
@@ -20,8 +18,9 @@ router.get('/byId/:id', (req, res) => {
 
 router.get('/byUserId/:id_usuario', (req, res) => {
     const id_usuario = parseInt(req.params.id_usuario)
-    if (ventasData.id_usuario === id_usuario) {
-        res.status(200).json(ventasData)
+    const ventasUsuario = ventasData.filter(venta => venta.id_usuario === id_usuario)
+    if (ventasUsuario.length > 0) {
+        res.status(200).json(ventasUsuario)
     } else {
         res.status(400).json(`No se encontraron ventas para el usuario con ID ${id_usuario}`)
     }
@@ -30,7 +29,7 @@ router.get('/byUserId/:id_usuario', (req, res) => {
 router.post('/create', async (req, res) => {
     try {
         const newVenta = req.body
-        ventasData = newVenta
+        ventasData.push(newVenta)
         await writeFile('./data/ventas.json', JSON.stringify(ventasData, null, 2))
         res.status(201).json('Venta creada')
     } catch (error) {
@@ -38,24 +37,12 @@ router.post('/create', async (req, res) => {
     }
 })
 
-router.post('/sensitiveData', (req, res) => {
-    const { id } = req.body
-    if (ventasData.id === id) {
-        const sensitiveInfo = {
-            total: ventasData.total,
-            dirección: ventasData.dirección
-        }
-        res.status(200).json(sensitiveInfo)
-    } else {
-        res.status(400).json('Venta no encontrada')
-    }
-})
-
 router.put('/update', async (req, res) => {
     try {
         const { id, ...updatedData } = req.body
-        if (ventasData.id === id) {
-            ventasData = { ...ventasData, ...updatedData }
+        const ventaIndex = ventasData.findIndex(venta => venta.id === id)
+        if (ventaIndex !== -1) {
+            ventasData[ventaIndex] = { ...ventasData[ventaIndex], ...updatedData }
             await writeFile('./data/ventas.json', JSON.stringify(ventasData, null, 2))
             res.status(200).json('Venta modificada')
         } else {
@@ -66,21 +53,33 @@ router.put('/update', async (req, res) => {
     }
 })
 
-router.delete('/delete', async (req, res) => {
+router.delete('/delete/:id', async (req, res) => {
+    const id = parseInt(req.params.id)
     try {
-        const id = ventasData.id
-        const isRelatedToUsers = usuariosData.some(usuario => usuario.ventas && usuario.ventas.includes(id))
-        
-        if (isRelatedToUsers) {
-            return res.status(400).json('No se puede eliminar la venta porque está relacionada con un usuario.')
+        const fileVentas = await readFile('./data/ventas.json', 'utf-8')
+        let ventasData = JSON.parse(fileVentas)
+
+        const fileUsuarios = await readFile('./data/usuarios.json', 'utf-8')
+        let usuariosData = JSON.parse(fileUsuarios)
+
+        if (ventasData.some(venta => venta.id === id)) {
+            const id_usuario = ventasData.find(venta => venta.id === id).id_usuario
+            if (usuariosData.some(user => user.id === id_usuario)) {
+                return res.status(400).json('No se puede eliminar la venta porque está asociada a un usuario existente.')
+            }
         }
 
-        ventasData = {}
-        await writeFile('./data/ventas.json', JSON.stringify(ventasData, null, 2))
-        res.status(200).json('Venta eliminada')
+        const ventaIndex = ventasData.findIndex(venta => venta.id === id)
+        if (ventaIndex !== -1) {
+            ventasData.splice(ventaIndex, 1)
+            await writeFile('./data/ventas.json', JSON.stringify(ventasData, null, 2))
+            res.status(200).json('Venta eliminada')
+        } else {
+            res.status(400).json('Venta no encontrada')
+        }
     } catch (error) {
         res.status(500).json('Error al eliminar la venta')
     }
-})
+});
 
 export default router

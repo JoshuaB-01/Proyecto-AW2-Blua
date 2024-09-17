@@ -3,106 +3,96 @@ import { readFile, writeFile } from 'fs/promises'
 
 const router = Router()
 
-const fileItems = await readFile('./data/productos.json', 'utf-8')
-const itemsData = JSON.parse(fileItems)
+let fileProductos = await readFile('./data/productos.json', 'utf-8')
+let productosData = JSON.parse(fileProductos)
 
-const fileVentas = await readFile('./data/ventas.json', 'utf-8')
-const ventasData = JSON.parse(fileVentas)
-
-
-router.get('/byId/:id', (req, res) => {
-    const id = parseInt(req.params.id);
-    const result = itemsData.find(e => e.id === id)
-    if (result) {
-        res.status(200).json(result)
+router.get('/categoriaById/:id', (req, res) => {
+    const id = parseInt(req.params.id)
+    const producto = productosData.find(prod => prod.id === id)
+    if (producto) {
+        res.status(200).json({ categoria: producto.categoria })
     } else {
         res.status(400).json(`${id} no se encuentra`)
     }
 })
 
-
-router.get('/byCategory/:categoria', (req, res) => {
-    const categoria = req.params.categoria
-    const result = itemsData.filter(e => e.categoria === categoria)
-    if (result.length > 0) {
-        res.status(200).json(result)
+router.get('/nombreById/:id', (req, res) => {
+    const id = parseInt(req.params.id)
+    const producto = productosData.find(prod => prod.id === id)
+    if (producto) {
+        res.status(200).json({ nombre: producto.nombre })
     } else {
-        res.status(400).json(`${categoria} no se encuentra, intente con su ID`)
+        res.status(400).json(`${id} no se encuentra`)
     }
-});
-
+})
 
 router.post('/create', async (req, res) => {
     try {
-        const newItem = req.body
-        itemsData.push(newItem)
-        await writeFile('./data/productos.json', JSON.stringify(itemsData, null, 2))
-        res.status(201).json('Item creado')
+        const newProducto = req.body
+        let productosData = JSON.parse(await readFile('./data/productos.json', 'utf-8'))
+        productosData.push(newProducto)
+        await writeFile('./data/productos.json', JSON.stringify(productosData, null, 2))
+        res.status(201).json('Producto creado')
     } catch (error) {
-        res.status(500).json('Error al crear el item')
+        res.status(500).json('Error al crear el producto')
     }
-})
+});
 
-
-router.post('/sensitiveData', async (req, res) => {
-    try {
-        const { id } = req.body
-        const item = itemsData.find(e => e.id === id)
-        if (item) {
-        
-            const sensitiveInfo = {
-                precio: item.precio,
-                stock: item.stock
-            };
-            res.status(200).json(sensitiveInfo)
-        } else {
-            res.status(400).json('Item no encontrado')
+router.post('/sensitiveData', (req, res) => {
+    const { id } = req.body
+    const producto = productosData.find(prod => prod.id === id)
+    if (producto) {
+        const sensitiveInfo = {
+            precio: producto.precio,
+            stock: producto.stock 
         }
-    } catch (error) {
-        res.status(500).json('Error al obtener datos sensibles')
+        res.status(200).json(sensitiveInfo)
+    } else {
+        res.status(400).json('Producto no encontrado')
     }
 })
 
-
-router.put('/changePrice', async (req, res) => {
+router.put('/update', async (req, res) => {
     try {
-        const { id, nuevo_precio } = req.body
-        const index = itemsData.findIndex(e => e.id === id)
-        if (index !== -1) {
-            itemsData[index].precio = nuevo_precio
-            await writeFile('./data/productos.json', JSON.stringify(itemsData, null, 2))
+        const { id, ...updatedData } = req.body
+        let fileProductos = await readFile('./data/productos.json', 'utf-8')
+        let productosData = JSON.parse(fileProductos)
+        const productoIndex = productosData.findIndex(prod => prod.id === id)
+        if (productoIndex !== -1) {
+            productosData[productoIndex] = { ...productosData[productoIndex], ...updatedData }
+            await writeFile('./data/productos.json', JSON.stringify(productosData, null, 2))
             res.status(200).json('Producto modificado')
         } else {
             res.status(400).json('Producto no encontrado')
         }
     } catch (error) {
-        res.status(500).json('Error al actualizar el precio')
+        res.status(500).json('Error al actualizar el producto')
     }
-})
-
+});
 
 router.delete('/delete/:id', async (req, res) => {
+    const id = parseInt(req.params.id)
+
     try {
-        const id = parseInt(req.params.id)
-        const index = itemsData.findIndex(e => e.id === id)
-        
-        
-        const isRelatedToSales = ventasData.some(venta => venta.productos.includes(id))
-        
-        if (isRelatedToSales) {
-            return res.status(400).json('No se puede eliminar el producto porque está relacionado con una venta.')
+        const fileProductos = await readFile('./data/productos.json', 'utf-8')
+        let productosData = JSON.parse(fileProductos)
+        const fileVentas = await readFile('./data/ventas.json', 'utf-8')
+        let ventasData = JSON.parse(fileVentas)
+        if (ventasData.some(venta => venta.productos.includes(id))) {
+            return res.status(400).json('No se puede eliminar el producto porque tiene ventas asociadas.')
         }
 
-        if (index !== -1) {
-            itemsData.splice(index, 1)
-            await writeFile('./data/productos.json', JSON.stringify(itemsData, null, 2))
-            res.status(200).json('Item eliminado')
-        } else {
-            res.status(400).json('Item no encontrado')
+        const productosFiltrados = productosData.filter(prod => prod.id !== id)
+        if (productosFiltrados.length === productosData.length) {
+            return res.status(404).json('Producto no encontrado')
         }
+
+        await writeFile('./data/productos.json', JSON.stringify(productosFiltrados, null, 2))
+        res.status(200).json('Producto eliminado')
     } catch (error) {
-        res.status(500).json('Error al eliminar el item')
+        console.error('Error al eliminar el producto:', error)
+        res.status(500).json('Error al eliminar el producto')
     }
-})
+});
 
 export default router
