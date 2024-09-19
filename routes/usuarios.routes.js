@@ -42,7 +42,7 @@ router.post('/create', async (req, res) => {
     } catch (error) {
         res.status(500).json('Error al crear el usuario')
     }
-});
+})
 
 router.post('/sensitiveData', (req, res) => {
     const { id } = req.body
@@ -77,7 +77,7 @@ router.put('/update', async (req, res) => {
     } catch (error) {
         res.status(500).json('Error al actualizar el usuario')
     }
-});
+})
 
 router.delete('/delete/:id', async (req, res) => {
     const id = parseInt(req.params.id)

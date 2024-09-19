@@ -80,6 +80,6 @@ router.delete('/delete/:id', async (req, res) => {
     } catch (error) {
         res.status(500).json('Error al eliminar la venta')
     }
-});
+})
 
 export default router

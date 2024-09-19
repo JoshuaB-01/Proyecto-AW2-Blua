@@ -36,7 +36,7 @@ router.post('/create', async (req, res) => {
     } catch (error) {
         res.status(500).json('Error al crear el producto')
     }
-});
+})
 
 router.post('/sensitiveData', (req, res) => {
     const { id } = req.body
@@ -68,7 +68,7 @@ router.put('/update', async (req, res) => {
     } catch (error) {
         res.status(500).json('Error al actualizar el producto')
     }
-});
+})
 
 router.delete('/delete/:id', async (req, res) => {
     const id = parseInt(req.params.id)
@@ -93,6 +93,6 @@ router.delete('/delete/:id', async (req, res) => {
         console.error('Error al eliminar el producto:', error)
         res.status(500).json('Error al eliminar el producto')
     }
-});
+})
 
 export default router
