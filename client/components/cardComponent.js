@@ -19,4 +19,3 @@ export function CardComponent(producto) {
             </div>
         </div>`;
 }
-
