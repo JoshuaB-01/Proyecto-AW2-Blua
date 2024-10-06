@@ -4,7 +4,7 @@
     "nombre": "Sofá de 3 plazas",
     "desc": "Sofá cómodo y elegante para sala de estar",
     "precio": 209996.50,
-    "imagen": "imagen.jpg",
+    "imagen": "../assets/productos/sofa-3-plazas.webp",
     "stock": 20,
     "disponible": true,
     "categoria": "Muebles"
@@ -14,7 +14,7 @@
     "nombre": "Mesa de comedor",
     "desc": "Mesa extensible de madera para 6-8 personas",
     "precio": 139996.50,
-    "imagen": "imagen.jpg",
+    "imagen": "../assets/productos/mesa-de-comedor.webp",
     "stock": 15,
     "disponible": true,
     "categoria": "Muebles"
@@ -24,7 +24,7 @@
     "nombre": "Juego de sábanas",
     "desc": "Sábanas de algodón egipcio, 400 hilos",
     "precio": 31496.50,
-    "imagen": "imagen.jpg",
+    "imagen": "../assets/productos/juego-de-sabanas.webp",
     "stock": 50,
     "disponible": true,
     "categoria": "Textiles"
@@ -34,7 +34,7 @@
     "nombre": "Lámpara de pie",
     "desc": "Lámpara moderna con luz ajustable",
     "precio": 45496.50,
-    "imagen": "imagen.jpg",
+    "imagen": "../assets/productos/lampara-de-pie.webp",
     "stock": 30,
     "disponible": true,
     "categoria": "Iluminación"
@@ -44,7 +44,7 @@
     "nombre": "Juego de ollas",
     "desc": "Set de 5 ollas de acero inoxidable",
     "precio": 69996.50,
-    "imagen": "imagen.jpg",
+    "imagen": "../assets/productos/juego-de-ollas.webp",
     "stock": 25,
     "disponible": true,
     "categoria": "Cocina"
@@ -54,7 +54,7 @@
     "nombre": "Aspiradora robot",
     "desc": "Aspiradora inteligente con mapeo",
     "precio": 104996.50,
-    "imagen": "imagen.jpg",
+    "imagen": "../assets/productos/aspiradora-robot.webp",
     "stock": 40,
     "disponible": true,
     "categoria": "Electrodomésticos"
@@ -64,7 +64,7 @@
     "nombre": "Cortinas blackout",
     "desc": "Par de cortinas opacas, 2.4m de largo",
     "precio": 27996.50,
-    "imagen": "imagen.jpg",
+    "imagen": "../assets/productos/cortina-blackout.webp",
     "stock": 60,
     "disponible": true,
     "categoria": "Textiles"
@@ -74,7 +74,7 @@
     "nombre": "Planta artificial",
     "desc": "Planta decorativa de 1.5m de altura",
     "precio": 17496.50,
-    "imagen": "imagen.jpg",
+    "imagen": "../assets/productos/planta-artificial.webp",
     "stock": 100,
     "disponible": true,
     "categoria": "Decoración"
@@ -84,7 +84,7 @@
     "nombre": "Espejo de pared",
     "desc": "Espejo redondo de 80cm de diámetro",
     "precio": 31496.50,
-    "imagen": "imagen.jpg",
+    "imagen": "../assets/productos/espejo-pared.webp",
     "stock": 35,
     "disponible": true,
     "categoria": "Decoración"
@@ -94,7 +94,7 @@
     "nombre": "Set de toallas",
     "desc": "Juego de 6 toallas de baño de algodón",
     "precio": 24496.50,
-    "imagen": "imagen.jpg",
+    "imagen": "../assets/productos/set-toallas.webp",
     "stock": 75,
     "disponible": true,
     "categoria": "Textiles"

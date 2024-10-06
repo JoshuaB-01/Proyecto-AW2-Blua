@@ -1,21 +1,23 @@
 import express from 'express'
+import cors from 'cors';
 import { readFile, writeFile } from 'fs/promises'
 
-import usuariosRouter from './routes/usuarios.routes.js'
-import ventasRouter from './routes/ventas.routes.js'
-import productosRouter from './routes/productos.routes.js'
-
+import usersRouter from './routes/users.routes.js'
+import productsRouter from './routes/products.routes.js'
+import ordersRouter from './routes/orders.routes.js'
 const app = express()
 const port = 3001
 
+
+app.use(cors());
 app.use(express.json())
 
+app.use(express.static('./client'))
+
+app.use('/users', usersRouter)
+app.use('/products', productsRouter)
+app.use('/orders', ordersRouter)
 
 app.listen(port, () => {
     console.log(`Servidor levantado en puerto ${port}`)
 })
-
-
-app.use('/usuarios', usuariosRouter)
-app.use('/ventas', ventasRouter)
-app.use('/productos', productosRouter)
