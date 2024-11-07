@@ -2,6 +2,7 @@ import { CardComponent } from '../components/cardComponent.js';
 import { NavbarComponent, initMobileMenu } from '../components/navbarComponent.js';
 import { FooterComponent } from '../components/footerComponent.js';
 import { getData, setData } from '../utils/localStorage.controller.js';
+import { fetchProductos } from '../api/api.js';
 
 let productos = [];
 
@@ -18,6 +19,7 @@ function renderizarNavbar() {
         headerElement.innerHTML = NavbarComponent();
     }
 }
+
 function renderizarFooter() {
     const footerElement = document.querySelector('footer');
     if (footerElement) {
@@ -27,19 +29,8 @@ function renderizarFooter() {
 
 async function cargarCategorias() {
     try {
-        const respuesta = await fetch(`http://localhost:3001/products/products`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-
-        if (!respuesta.ok) {
-            throw new Error('Error en la respuesta del servidor');
-        }
-
-        productos = await respuesta.json();        
-       
+        productos = await fetchProductos();
+        
         const categorias = [...new Set(productos.map(producto => producto.categoria))];
         
         const contenedorCategorias = document.getElementById('contenedor-categorias');
@@ -59,21 +50,13 @@ async function cargarCategorias() {
         cargarProductosPorCategoria('todas');
     } catch (error) {
         console.error('Error al cargar las categorías:', error);
-       
     }
 }
 
 async function cargarProductosPorCategoria(categoria) {
     try {
-        const respuesta = await fetch(`http://localhost:3001/products/products`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-
-        if (!respuesta.ok) {
-            throw new Error('Error en la respuesta del servidor');
+        if (productos.length === 0) {
+            productos = await fetchProductos();
         }
 
         const productosFiltrados = categoria === 'todas' ? productos : productos.filter(producto => producto.categoria === categoria);
@@ -88,10 +71,8 @@ async function cargarProductosPorCategoria(categoria) {
         contenedorProductos.innerHTML = htmlProductos;
     } catch (error) {
         console.error('Error al cargar los productos:', error);
-       
     }
 }
-
 
 window.agregarAlCarrito = function(productId) {
     let cantidad = parseInt(document.getElementById(`cantidad-${productId}`).value);

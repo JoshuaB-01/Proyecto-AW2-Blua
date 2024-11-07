@@ -1,12 +1,15 @@
 import express from 'express'
 import cors from 'cors';
 import { readFile, writeFile } from 'fs/promises'
+import { encryptPasswords } from './utils/encrypt.middleware.js'
 
 import usersRouter from './routes/users.routes.js'
 import productsRouter from './routes/products.routes.js'
 import ordersRouter from './routes/orders.routes.js'
 const app = express()
 const port = 3001
+
+await encryptPasswords();
 
 
 app.use(cors());

@@ -2,55 +2,43 @@
   {
     "id": 1,
     "usuario": {
-      "nombre": "Miguel",
-      "apellido": "Torres",
-      "email": "miguel.torres@email.com"
-    },
-    "items": [
-      {
-        "id": 6,
-        "nombre": "Aspiradora robot",
-        "cantidad": 6,
-        "precio": 104996.5,
-        "total": 629979
-      },
-      {
-        "id": 3,
-        "nombre": "Juego de sábanas",
-        "cantidad": 7,
-        "precio": 31496.5,
-        "total": 220475.5
-      }
-    ],
-    "total": 850454.5,
-    "fecha": "2024-10-05T16:45:43.985Z",
-    "estado": "finalizada"
-  },
-  {
-    "id": 2,
-    "usuario": {
-      "nombre": "Miguel",
-      "apellido": "Torres",
-      "email": "miguel.torres@email.com"
+      "id": 10,
+      "nombre": "Javier",
+      "apellido": "Ruiz",
+      "email": "javier.ruiz@email.com"
     },
     "items": [
       {
         "id": 2,
         "nombre": "Mesa de comedor",
-        "cantidad": 4,
+        "cantidad": 3,
         "precio": 139996.5,
-        "total": 559986
+        "total": 419989.5
       },
       {
-        "id": 4,
-        "nombre": "Lámpara de pie",
-        "cantidad": 4,
-        "precio": 45496.5,
-        "total": 181986
+        "id": 3,
+        "nombre": "Juego de sábanas",
+        "cantidad": 2,
+        "precio": 31496.5,
+        "total": 62993
+      },
+      {
+        "id": 10,
+        "nombre": "Set de toallas",
+        "cantidad": 1,
+        "precio": 24496.5,
+        "total": 24496.5
+      },
+      {
+        "id": 6,
+        "nombre": "Aspiradora robot",
+        "cantidad": 1,
+        "precio": 104996.5,
+        "total": 104996.5
       }
     ],
-    "total": 741972,
-    "fecha": "2024-10-05T16:47:17.335Z",
+    "total": 612475.5,
+    "fecha": "2024-11-07T13:20:30.938Z",
     "estado": "finalizado"
   }
 ]

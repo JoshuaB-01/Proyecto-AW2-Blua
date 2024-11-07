@@ -1,6 +1,7 @@
 import { getData, deleteCollection } from '../utils/localStorage.controller.js';
 import { NavbarComponent } from '../components/navbarComponent.js';
 import { FooterComponent } from '../components/footerComponent.js';
+import { crearOrden } from '../api/api.js';
 
 async function inicializarCarrito() {
     renderizarNavbar();
@@ -61,35 +62,24 @@ async function comprar() {
         return;
     }
 
-  
     try {
-        const response = await fetch('http://localhost:3001/orders/create', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
+        const ordenData = {
+            usuario: {
+                id: usuario.id,
+                nombre: usuario.nombre,
+                apellido: usuario.apellido,
+                email: usuario.email
             },
-            body: JSON.stringify({
-                usuario: {
-                    id: usuario.id,
-                    nombre: usuario.nombre,
-                    apellido: usuario.apellido,
-                    email: usuario.email
-                },
-                items: carrito.map(item => ({
-                    id: item.id,
-                    nombre: item.nombre,
-                    cantidad: item.cantidad,
-                    precio: item.precio,
-                    total: item.total
-                }))
-            }),
-        });
+            items: carrito.map(item => ({
+                id: item.id,
+                nombre: item.nombre,
+                cantidad: item.cantidad,
+                precio: item.precio,
+                total: item.total
+            }))
+        };
 
-        if (!response.ok) {
-            throw new Error('Error al procesar la orden');
-        }
-
-        const result = await response.json();
+        const result = await crearOrden(ordenData);
         console.log('Orden creada:', result.order);
         alert(`Compra realizada con éxito. Número de orden: ${result.order.id}`);
         vaciarCarrito();

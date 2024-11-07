@@ -2,6 +2,7 @@ import { CardComponent } from '../components/cardComponent.js';
 import { NavbarComponent } from '../components/navbarComponent.js';
 import { FooterComponent } from '../components/footerComponent.js';
 import { getData, setData } from '../utils/localStorage.controller.js';
+import { fetchProductos } from '../api/api.js';
 
 let productos = [];
 
@@ -27,18 +28,7 @@ function renderizarFooter() {
 
 async function cargarProductos() {
     try {
-        const respuesta = await fetch(`http://localhost:3001/products/products`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-
-        if (!respuesta.ok) {
-            throw new Error('Error en la respuesta del servidor');
-        }
-
-        productos = await respuesta.json();
+        productos = await fetchProductos();
 
         const contenedorProductos = document.getElementById('contenedor-productos');
         
@@ -81,4 +71,4 @@ window.agregarAlCarrito = function(productId) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', inicializarHome); 
+document.addEventListener('DOMContentLoaded', inicializarHome);
